@@ -2,7 +2,7 @@
 
 var React = require('react');
 
-var Home = React.createClass(
+var Home = React.createClass({
   render: function() {
     return (
       <div className='jumbotron'>
@@ -11,6 +11,6 @@ var Home = React.createClass(
       </div>
     );
   }
-);
+});
 
 module.exports = Home;
