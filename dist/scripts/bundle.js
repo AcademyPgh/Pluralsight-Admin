@@ -28816,6 +28816,7 @@ module.exports = require('./lib/React');
 var React = require('react');
 
 var About = React.createClass({displayName: "About",
+
   render: function () {
     return (
       React.createElement("div", null, 
