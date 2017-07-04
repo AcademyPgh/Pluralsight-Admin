@@ -1,8 +1,8 @@
 $ = jQuery = require('jquery');
 var React = require('react');
 var Home = require('./components/homePage');
-
-var About = require('./components/about/aboutPage');//hardcode, without the react-router library
+var About = require('./components/about/aboutPage'); //hardcode, without the react-router library
+var Header = require('./components/commmon/header');
 
 var App = React.createClass({
   render: function () {
@@ -19,6 +19,7 @@ var App = React.createClass({
 
     return (
       <div>
+        <Header />
         <Child />
       </div>
     );
