@@ -7,22 +7,20 @@ var Header = require('/Users/home/docs/React-flux-starterpack/src/components/com
 
 var App = React.createClass({
   render: function () {
-    	var Child;
+    var Child;
+    switch (this.props.route) {
+      case 'about': Child = About; break;
+      case 'authors': Child = Authors; break; 
+      default:
+        Child = Home;
+    }
 
-	    switch (this.props.route) {
-	      case 'about': Child = About; break;
-        case 'authors': Child = Authors; break; 
-	      default:
-	        Child = Home;
-
-	    }
-
-    	return (      
-    		<div>
-    			<Header />
-    			<Child /> 
-    		</div>    
-    		);
+    return (
+      <div>
+        <Header />
+        <Child />
+      </div>
+    );
   }
 });
 
