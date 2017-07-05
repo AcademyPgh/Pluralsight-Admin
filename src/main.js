@@ -1,6 +1,7 @@
 $ = jQuery = require('jquery');
 var React = require('react');
 var Home = require('./components/homePage');
+var Authors = require('./components/authors/authorPage');
 var About = require('./components/about/aboutPage'); //hardcode, without the react-router library
 var Header = require('/Users/home/docs/React-flux-starterpack/src/components/common/header.js');
 
@@ -9,9 +10,8 @@ var App = React.createClass({
     	var Child;
 
 	    switch (this.props.route) {
-	      case 'about':
-	        Child = About;
-	        break;
+	      case 'about': Child = About; break;
+        case 'authors': Child = Authors; break; 
 	      default:
 	        Child = Home;
 
