@@ -49186,7 +49186,7 @@ var App = React.createClass({displayName: "App",
 module.exports = App; 
 
 },{"./common/header.js":206,"jquery":1,"react":197,"react-router":34}],202:[function(require,module,exports){
-"use strict"; 
+"use strict";
 
 var React = require('react');
 
@@ -49202,16 +49202,18 @@ var AuthorForm = React.createClass({displayName: "AuthorForm",
 					className: "form-control", 
 					placeholder: "First Name", 
 					ref: "firstName", 
-					value: ""}), 
+					onChange: this.props.onChange, 
+					value: this.props.author.firstName}), 
 				React.createElement("br", null), 
 
 				React.createElement("label", {htmlFor: "lastName"}, "Last Name"), 
 				React.createElement("input", {type: "text", 
-					name: "firstName", 
+					name: "lastName", 
 					className: "form-control", 
 					placeholder: "Last Name", 
 					ref: "lasttName", 
-					value: ""}), 
+					onChange: this.props.onChange, 
+					value: this.props.author.lastName}), 
 				React.createElement("br", null), 
 
 
@@ -49220,12 +49222,11 @@ var AuthorForm = React.createClass({displayName: "AuthorForm",
 					value: "Save"}), 
 				React.createElement("br", null)
 			)
-
 		);
 	}
 });
 
-module.exports = AuthorForm; 
+module.exports = AuthorForm;
 
 },{"react":197}],203:[function(require,module,exports){
 "use strict"; 
@@ -49307,10 +49308,25 @@ var AuthorForm = require('./authorForm');
 
 var ManageAuthorPage = React.createClass({displayName: "ManageAuthorPage",
 
+	getInitialState: function() {
+		return {
+			author: {id: '', firstName: '', lastName: ''}
+		}; 
+	},
+
+	setAuthorState: function (event) {
+		var field = event.target.name;
+		var value = event.target.value; 
+		this.state.author[field] = value; 
+		return this.setState({author: this.state.author});
+	},
+
 	render: function() {
 		return (
 			React.createElement("div", null, 
-				React.createElement(AuthorForm, null)
+				React.createElement(AuthorForm, {
+					author: this.state.author, 
+					onChange: this.setAuthorState})
 			)
 
 		);
