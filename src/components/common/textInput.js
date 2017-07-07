@@ -16,11 +16,11 @@ var Input = React.createClass({
 		var wrapperClass = 'form-group';
 		if (this.props.error && this.props.error.length > 0) {
 			wrapperClass += ' ' + 'has-error'; 
-		}, 
+		} 
 
 		return (
 			<div className={wrapperClass}>
-				<label htmlFor={this.props.name}>this.props.label</label>
+				<label htmlFor={this.props.name}>{this.props.label}</label>
 				<div className={'field'}>
 					<input type='text'
 						name={this.props.name}
