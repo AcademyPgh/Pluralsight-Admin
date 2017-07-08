@@ -13,12 +13,12 @@ var ManageAuthorPage = React.createClass({
 
 	statics: {
 		willTransitionFrom: function (transition, component) {
-		  //if unsaved data, prompt a confirmation to leave
+		//if unsaved data, prompt a confirmation to leave
 
-		  if(component.state.dirty && !confirm('Leave without saving?')) {
-		    transition.abort();
-		  }
-		},
+			if(component.state.dirty && !confirm('Leave without saving?')) {
+				transition.abort();
+			}
+		}
 	},
 
 	getInitialState: function() {
@@ -27,6 +27,15 @@ var ManageAuthorPage = React.createClass({
 			errors: {}, 
 			dirty: false
 		}; 
+	},
+
+	componentWillMount: function() {
+		var authorId = this.props.params.id; // from the path author/:id
+
+		if(authorId) {
+			this.setState({author: AuthorApi.getAuthorById(authorId)});
+		}
+		
 	},
 
 	setAuthorState: function (event) {
