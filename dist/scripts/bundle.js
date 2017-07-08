@@ -49549,24 +49549,6 @@ module.exports = {
 var React = require('react');
 
 var About = React.createClass({displayName: "About",
-  statics: {
-    willTransitionTo: function (transition, params, query, callback) {
-      //if not loggeded_in, require login
-
-      if(!confirm('Are you sure you want to navigate here?')) {
-        transition.about();
-      } else {
-        callback();
-      }
-    },
-    willTransitionFrom: function (transition, component) {
-      //if unsaved data, prompt a confirmation to leave
-
-      if(!confirm('Are you sure you want to leave without saving?')) {
-        transition.about();
-      }
-    }
-  },
   render: function () {
     return (
       React.createElement("div", null, 
@@ -49620,6 +49602,12 @@ var React = require('react');
 var Input = require('../common/textInput');
 
 var AuthorForm = React.createClass({displayName: "AuthorForm",
+	propTypes: {
+		author: React.PropTypes.object.isRequired,
+		onSave: React.PropTypes.func.isRequired,
+		onChange: React.PropTypes.func.isRequired, 
+		errors: React.PropTypes.object
+	},
 
 	render: function() {
 		return (
@@ -49737,14 +49725,26 @@ var ManageAuthorPage = React.createClass({displayName: "ManageAuthorPage",
 		Router.Navigation
 	], 
 
+	statics: {
+		willTransitionFrom: function (transition, component) {
+		  //if unsaved data, prompt a confirmation to leave
+
+		  if(component.state.dirty && !confirm('Leave without saving?')) {
+		    transition.abort();
+		  }
+		},
+	},
+
 	getInitialState: function() {
 		return {
 			author: {id: '', firstName: '', lastName: ''},
-			errors: {}
+			errors: {}, 
+			dirty: false
 		}; 
 	},
 
 	setAuthorState: function (event) {
+		this.setState({dirty: true});
 		var field = event.target.name;
 		var value = event.target.value; 
 		this.state.author[field] = value; 
@@ -49777,6 +49777,7 @@ var ManageAuthorPage = React.createClass({displayName: "ManageAuthorPage",
 		}
 
 		AuthorApi.saveAuthor(this.state.author);
+		this.setState({dirty: false});
 		toastr.success('Author saved.');
 		this.transitionTo('authors');
 	},
