@@ -26299,34 +26299,6 @@ return jQuery;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{}],3:[function(require,module,exports){
-'use strict';
-
-function ToObject(val) {
-	if (val == null) {
-		throw new TypeError('Object.assign cannot be called with null or undefined');
-	}
-
-	return Object(val);
-}
-
-module.exports = Object.assign || function (target, source) {
-	var from;
-	var keys;
-	var to = ToObject(target);
-
-	for (var s = 1; s < arguments.length; s++) {
-		from = arguments[s];
-		keys = Object.keys(Object(from));
-
-		for (var i = 0; i < keys.length; i++) {
-			to[keys[i]] = from[keys[i]];
-		}
-	}
-
-	return to;
-};
-
-},{}],4:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -26512,10 +26484,10 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],5:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 module.exports = require('./lib/');
 
-},{"./lib/":6}],6:[function(require,module,exports){
+},{"./lib/":5}],5:[function(require,module,exports){
 // Load modules
 
 var Stringify = require('./stringify');
@@ -26532,7 +26504,7 @@ module.exports = {
     parse: Parse
 };
 
-},{"./parse":7,"./stringify":8}],7:[function(require,module,exports){
+},{"./parse":6,"./stringify":7}],6:[function(require,module,exports){
 // Load modules
 
 var Utils = require('./utils');
@@ -26695,7 +26667,7 @@ module.exports = function (str, options) {
     return Utils.compact(obj);
 };
 
-},{"./utils":9}],8:[function(require,module,exports){
+},{"./utils":8}],7:[function(require,module,exports){
 // Load modules
 
 var Utils = require('./utils');
@@ -26794,7 +26766,7 @@ module.exports = function (obj, options) {
     return keys.join(delimiter);
 };
 
-},{"./utils":9}],9:[function(require,module,exports){
+},{"./utils":8}],8:[function(require,module,exports){
 // Load modules
 
 
@@ -26928,7 +26900,7 @@ exports.isBuffer = function (obj) {
         obj.constructor.isBuffer(obj));
 };
 
-},{}],10:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 /**
  * Represents a cancellation caused by navigating away
  * before the previous transition has fully resolved.
@@ -26938,7 +26910,7 @@ exports.isBuffer = function (obj) {
 function Cancellation() {}
 
 module.exports = Cancellation;
-},{}],11:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 'use strict';
 
 var invariant = require('react/lib/invariant');
@@ -26969,7 +26941,7 @@ var History = {
 };
 
 module.exports = History;
-},{"react/lib/ExecutionEnvironment":62,"react/lib/invariant":177}],12:[function(require,module,exports){
+},{"react/lib/ExecutionEnvironment":62,"react/lib/invariant":177}],11:[function(require,module,exports){
 'use strict';
 
 var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
@@ -27045,7 +27017,7 @@ var Match = (function () {
 })();
 
 module.exports = Match;
-},{"./PathUtils":14}],13:[function(require,module,exports){
+},{"./PathUtils":13}],12:[function(require,module,exports){
 'use strict';
 
 var PropTypes = require('./PropTypes');
@@ -27116,7 +27088,7 @@ var Navigation = {
 };
 
 module.exports = Navigation;
-},{"./PropTypes":15}],14:[function(require,module,exports){
+},{"./PropTypes":14}],13:[function(require,module,exports){
 'use strict';
 
 var invariant = require('react/lib/invariant');
@@ -27270,7 +27242,7 @@ var PathUtils = {
 };
 
 module.exports = PathUtils;
-},{"object-assign":3,"qs":5,"react/lib/invariant":177}],15:[function(require,module,exports){
+},{"object-assign":42,"qs":4,"react/lib/invariant":177}],14:[function(require,module,exports){
 'use strict';
 
 var assign = require('react/lib/Object.assign');
@@ -27302,7 +27274,7 @@ var PropTypes = assign({}, ReactPropTypes, {
 });
 
 module.exports = PropTypes;
-},{"./Route":17,"react":197,"react/lib/Object.assign":68}],16:[function(require,module,exports){
+},{"./Route":16,"react":197,"react/lib/Object.assign":68}],15:[function(require,module,exports){
 /**
  * Encapsulates a redirect to the given route.
  */
@@ -27315,7 +27287,7 @@ function Redirect(to, params, query) {
 }
 
 module.exports = Redirect;
-},{}],17:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 'use strict';
 
 var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
@@ -27516,7 +27488,7 @@ var Route = (function () {
 })();
 
 module.exports = Route;
-},{"./PathUtils":14,"react/lib/Object.assign":68,"react/lib/invariant":177,"react/lib/warning":196}],18:[function(require,module,exports){
+},{"./PathUtils":13,"react/lib/Object.assign":68,"react/lib/invariant":177,"react/lib/warning":196}],17:[function(require,module,exports){
 'use strict';
 
 var invariant = require('react/lib/invariant');
@@ -27592,7 +27564,7 @@ var ScrollHistory = {
 };
 
 module.exports = ScrollHistory;
-},{"./getWindowScrollPosition":33,"react/lib/ExecutionEnvironment":62,"react/lib/invariant":177}],19:[function(require,module,exports){
+},{"./getWindowScrollPosition":32,"react/lib/ExecutionEnvironment":62,"react/lib/invariant":177}],18:[function(require,module,exports){
 'use strict';
 
 var PropTypes = require('./PropTypes');
@@ -27667,7 +27639,7 @@ var State = {
 };
 
 module.exports = State;
-},{"./PropTypes":15}],20:[function(require,module,exports){
+},{"./PropTypes":14}],19:[function(require,module,exports){
 /* jshint -W058 */
 
 'use strict';
@@ -27743,7 +27715,7 @@ Transition.to = function (transition, routes, params, query, callback) {
 };
 
 module.exports = Transition;
-},{"./Cancellation":10,"./Redirect":16}],21:[function(require,module,exports){
+},{"./Cancellation":9,"./Redirect":15}],20:[function(require,module,exports){
 /**
  * Actions that modify the URL.
  */
@@ -27769,7 +27741,7 @@ var LocationActions = {
 };
 
 module.exports = LocationActions;
-},{}],22:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 'use strict';
 
 var LocationActions = require('../actions/LocationActions');
@@ -27799,7 +27771,7 @@ var ImitateBrowserBehavior = {
 };
 
 module.exports = ImitateBrowserBehavior;
-},{"../actions/LocationActions":21}],23:[function(require,module,exports){
+},{"../actions/LocationActions":20}],22:[function(require,module,exports){
 /**
  * A scroll behavior that always scrolls to the top of the page
  * after a transition.
@@ -27815,7 +27787,7 @@ var ScrollToTopBehavior = {
 };
 
 module.exports = ScrollToTopBehavior;
-},{}],24:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 'use strict';
 
 var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
@@ -27854,7 +27826,7 @@ var ContextWrapper = (function (_React$Component) {
 })(React.Component);
 
 module.exports = ContextWrapper;
-},{"react":197}],25:[function(require,module,exports){
+},{"react":197}],24:[function(require,module,exports){
 'use strict';
 
 var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
@@ -27902,7 +27874,7 @@ DefaultRoute.defaultProps = {
 };
 
 module.exports = DefaultRoute;
-},{"../PropTypes":15,"./Route":29,"./RouteHandler":30}],26:[function(require,module,exports){
+},{"../PropTypes":14,"./Route":28,"./RouteHandler":29}],25:[function(require,module,exports){
 'use strict';
 
 var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
@@ -28038,7 +28010,7 @@ Link.defaultProps = {
 };
 
 module.exports = Link;
-},{"../PropTypes":15,"react":197,"react/lib/Object.assign":68}],27:[function(require,module,exports){
+},{"../PropTypes":14,"react":197,"react/lib/Object.assign":68}],26:[function(require,module,exports){
 'use strict';
 
 var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
@@ -28087,7 +28059,7 @@ NotFoundRoute.defaultProps = {
 };
 
 module.exports = NotFoundRoute;
-},{"../PropTypes":15,"./Route":29,"./RouteHandler":30}],28:[function(require,module,exports){
+},{"../PropTypes":14,"./Route":28,"./RouteHandler":29}],27:[function(require,module,exports){
 'use strict';
 
 var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
@@ -28131,7 +28103,7 @@ Redirect.propTypes = {
 Redirect.defaultProps = {};
 
 module.exports = Redirect;
-},{"../PropTypes":15,"./Route":29}],29:[function(require,module,exports){
+},{"../PropTypes":14,"./Route":28}],28:[function(require,module,exports){
 'use strict';
 
 var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
@@ -28223,7 +28195,7 @@ Route.defaultProps = {
 };
 
 module.exports = Route;
-},{"../PropTypes":15,"./RouteHandler":30,"react":197,"react/lib/invariant":177}],30:[function(require,module,exports){
+},{"../PropTypes":14,"./RouteHandler":29,"react":197,"react/lib/invariant":177}],29:[function(require,module,exports){
 'use strict';
 
 var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
@@ -28332,7 +28304,7 @@ RouteHandler.childContextTypes = {
 };
 
 module.exports = RouteHandler;
-},{"../PropTypes":15,"./ContextWrapper":24,"react":197,"react/lib/Object.assign":68}],31:[function(require,module,exports){
+},{"../PropTypes":14,"./ContextWrapper":23,"react":197,"react/lib/Object.assign":68}],30:[function(require,module,exports){
 (function (process){
 /* jshint -W058 */
 'use strict';
@@ -28849,7 +28821,7 @@ function createRouter(options) {
 
 module.exports = createRouter;
 }).call(this,require('_process'))
-},{"./Cancellation":10,"./History":11,"./Match":12,"./PathUtils":14,"./PropTypes":15,"./Redirect":16,"./Route":17,"./ScrollHistory":18,"./Transition":20,"./actions/LocationActions":21,"./behaviors/ImitateBrowserBehavior":22,"./createRoutesFromReactChildren":32,"./isReactChildren":35,"./locations/HashLocation":36,"./locations/HistoryLocation":37,"./locations/RefreshLocation":38,"./locations/StaticLocation":39,"./supportsHistory":42,"_process":4,"react":197,"react/lib/ExecutionEnvironment":62,"react/lib/invariant":177,"react/lib/warning":196}],32:[function(require,module,exports){
+},{"./Cancellation":9,"./History":10,"./Match":11,"./PathUtils":13,"./PropTypes":14,"./Redirect":15,"./Route":16,"./ScrollHistory":17,"./Transition":19,"./actions/LocationActions":20,"./behaviors/ImitateBrowserBehavior":21,"./createRoutesFromReactChildren":31,"./isReactChildren":34,"./locations/HashLocation":35,"./locations/HistoryLocation":36,"./locations/RefreshLocation":37,"./locations/StaticLocation":38,"./supportsHistory":41,"_process":3,"react":197,"react/lib/ExecutionEnvironment":62,"react/lib/invariant":177,"react/lib/warning":196}],31:[function(require,module,exports){
 /* jshint -W084 */
 'use strict';
 
@@ -28931,7 +28903,7 @@ function createRoutesFromReactChildren(children) {
 }
 
 module.exports = createRoutesFromReactChildren;
-},{"./Route":17,"./components/DefaultRoute":25,"./components/NotFoundRoute":27,"./components/Redirect":28,"react":197,"react/lib/Object.assign":68,"react/lib/warning":196}],33:[function(require,module,exports){
+},{"./Route":16,"./components/DefaultRoute":24,"./components/NotFoundRoute":26,"./components/Redirect":27,"react":197,"react/lib/Object.assign":68,"react/lib/warning":196}],32:[function(require,module,exports){
 'use strict';
 
 var invariant = require('react/lib/invariant');
@@ -28950,7 +28922,7 @@ function getWindowScrollPosition() {
 }
 
 module.exports = getWindowScrollPosition;
-},{"react/lib/ExecutionEnvironment":62,"react/lib/invariant":177}],34:[function(require,module,exports){
+},{"react/lib/ExecutionEnvironment":62,"react/lib/invariant":177}],33:[function(require,module,exports){
 'use strict';
 
 exports.DefaultRoute = require('./components/DefaultRoute');
@@ -28982,7 +28954,7 @@ exports.createRoutesFromReactChildren = require('./createRoutesFromReactChildren
 
 exports.create = require('./createRouter');
 exports.run = require('./runRouter');
-},{"./History":11,"./Navigation":13,"./Route":17,"./State":19,"./behaviors/ImitateBrowserBehavior":22,"./behaviors/ScrollToTopBehavior":23,"./components/DefaultRoute":25,"./components/Link":26,"./components/NotFoundRoute":27,"./components/Redirect":28,"./components/Route":29,"./components/RouteHandler":30,"./createRouter":31,"./createRoutesFromReactChildren":32,"./locations/HashLocation":36,"./locations/HistoryLocation":37,"./locations/RefreshLocation":38,"./locations/StaticLocation":39,"./locations/TestLocation":40,"./runRouter":41}],35:[function(require,module,exports){
+},{"./History":10,"./Navigation":12,"./Route":16,"./State":18,"./behaviors/ImitateBrowserBehavior":21,"./behaviors/ScrollToTopBehavior":22,"./components/DefaultRoute":24,"./components/Link":25,"./components/NotFoundRoute":26,"./components/Redirect":27,"./components/Route":28,"./components/RouteHandler":29,"./createRouter":30,"./createRoutesFromReactChildren":31,"./locations/HashLocation":35,"./locations/HistoryLocation":36,"./locations/RefreshLocation":37,"./locations/StaticLocation":38,"./locations/TestLocation":39,"./runRouter":40}],34:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -28996,7 +28968,7 @@ function isReactChildren(object) {
 }
 
 module.exports = isReactChildren;
-},{"react":197}],36:[function(require,module,exports){
+},{"react":197}],35:[function(require,module,exports){
 'use strict';
 
 var LocationActions = require('../actions/LocationActions');
@@ -29108,7 +29080,7 @@ var HashLocation = {
 };
 
 module.exports = HashLocation;
-},{"../History":11,"../actions/LocationActions":21}],37:[function(require,module,exports){
+},{"../History":10,"../actions/LocationActions":20}],36:[function(require,module,exports){
 'use strict';
 
 var LocationActions = require('../actions/LocationActions');
@@ -29195,7 +29167,7 @@ var HistoryLocation = {
 };
 
 module.exports = HistoryLocation;
-},{"../History":11,"../actions/LocationActions":21}],38:[function(require,module,exports){
+},{"../History":10,"../actions/LocationActions":20}],37:[function(require,module,exports){
 'use strict';
 
 var HistoryLocation = require('./HistoryLocation');
@@ -29227,7 +29199,7 @@ var RefreshLocation = {
 };
 
 module.exports = RefreshLocation;
-},{"../History":11,"./HistoryLocation":37}],39:[function(require,module,exports){
+},{"../History":10,"./HistoryLocation":36}],38:[function(require,module,exports){
 'use strict';
 
 var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
@@ -29277,7 +29249,7 @@ StaticLocation.prototype.replace = throwCannotModify;
 StaticLocation.prototype.pop = throwCannotModify;
 
 module.exports = StaticLocation;
-},{"react/lib/invariant":177}],40:[function(require,module,exports){
+},{"react/lib/invariant":177}],39:[function(require,module,exports){
 'use strict';
 
 var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
@@ -29372,7 +29344,7 @@ var TestLocation = (function () {
 })();
 
 module.exports = TestLocation;
-},{"../History":11,"../actions/LocationActions":21,"react/lib/invariant":177}],41:[function(require,module,exports){
+},{"../History":10,"../actions/LocationActions":20,"react/lib/invariant":177}],40:[function(require,module,exports){
 'use strict';
 
 var createRouter = require('./createRouter');
@@ -29423,7 +29395,7 @@ function runRouter(routes, location, callback) {
 }
 
 module.exports = runRouter;
-},{"./createRouter":31}],42:[function(require,module,exports){
+},{"./createRouter":30}],41:[function(require,module,exports){
 'use strict';
 
 function supportsHistory() {
@@ -29440,6 +29412,34 @@ function supportsHistory() {
 }
 
 module.exports = supportsHistory;
+},{}],42:[function(require,module,exports){
+'use strict';
+
+function ToObject(val) {
+	if (val == null) {
+		throw new TypeError('Object.assign cannot be called with null or undefined');
+	}
+
+	return Object(val);
+}
+
+module.exports = Object.assign || function (target, source) {
+	var from;
+	var keys;
+	var to = ToObject(target);
+
+	for (var s = 1; s < arguments.length; s++) {
+		from = arguments[s];
+		keys = Object.keys(Object(from));
+
+		for (var i = 0; i < keys.length; i++) {
+			to[keys[i]] = from[keys[i]];
+		}
+	}
+
+	return to;
+};
+
 },{}],43:[function(require,module,exports){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -49595,7 +49595,7 @@ var App = React.createClass({displayName: "App",
 
 module.exports = App; 
 
-},{"./common/header.js":208,"jquery":1,"react":197,"react-router":34}],204:[function(require,module,exports){
+},{"./common/header.js":208,"jquery":1,"react":197,"react-router":33}],204:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -49679,7 +49679,7 @@ var AuthorList = React.createClass({displayName: "AuthorList",
 
 module.exports = AuthorList;
 
-},{"react":197,"react-router":34}],206:[function(require,module,exports){
+},{"react":197,"react-router":33}],206:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -49714,7 +49714,7 @@ var AuthorPage = React.createClass({displayName: "AuthorPage",
 
 module.exports = AuthorPage;
 
-},{"../../api/AuthorApi":199,"./authorList":205,"react":197,"react-router":34}],207:[function(require,module,exports){
+},{"../../api/AuthorApi":199,"./authorList":205,"react":197,"react-router":33}],207:[function(require,module,exports){
 "use strict"; 
 
 var React = require('react');
@@ -49810,7 +49810,7 @@ var ManageAuthorPage = React.createClass({displayName: "ManageAuthorPage",
 
 module.exports = ManageAuthorPage; 
 
-},{"../../api/authorApi":200,"./authorForm":204,"react":197,"react-router":34,"toastr":198}],208:[function(require,module,exports){
+},{"../../api/authorApi":200,"./authorForm":204,"react":197,"react-router":33,"toastr":198}],208:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -49838,7 +49838,7 @@ var Header = React.createClass({displayName: "Header",
 
 module.exports = Header;
 
-},{"react":197,"react-router":34}],209:[function(require,module,exports){
+},{"react":197,"react-router":33}],209:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -49901,7 +49901,7 @@ var Home = React.createClass({displayName: "Home",
 
 module.exports = Home;
 
-},{"react":197,"react-router":34}],211:[function(require,module,exports){
+},{"react":197,"react-router":33}],211:[function(require,module,exports){
 "use strict"; 
 
 var React = require('react');
@@ -49921,7 +49921,7 @@ var NotFoundPage = React.createClass({displayName: "NotFoundPage",
 
 module.exports = NotFoundPage; 
 
-},{"react":197,"react-router":34}],212:[function(require,module,exports){
+},{"react":197,"react-router":33}],212:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -49932,7 +49932,7 @@ Router.run(routes, function (Handler) {
   React.render(React.createElement(Handler, null), document.getElementById('app'));
 });
 
-},{"./routes":213,"react":197,"react-router":34}],213:[function(require,module,exports){
+},{"./routes":213,"react":197,"react-router":33}],213:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -49957,4 +49957,4 @@ var routes = (
 
 module.exports = routes;
 
-},{"./components/about/aboutPage":202,"./components/app":203,"./components/authors/authorPage":206,"./components/authors/manageAuthorPage":207,"./components/homePage":210,"./components/notFoundPage":211,"react":197,"react-router":34}]},{},[212]);
+},{"./components/about/aboutPage":202,"./components/app":203,"./components/authors/authorPage":206,"./components/authors/manageAuthorPage":207,"./components/homePage":210,"./components/notFoundPage":211,"react":197,"react-router":33}]},{},[212]);
