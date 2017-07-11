@@ -5,8 +5,8 @@ var AuthorApi = require('../api/authorApi');
 var ActionTypes = require('../constants/actionTypes');
 
 var AuthorActions = {
-	creatAuthor: function(author) {
-		var newAuthor = AuthorApi.saveAuthor(author); //use callbacks or promises to handle the response from the web API
+	createAuthor: function(author) {
+		var newAuthor = AuthorApi.saveAuthor(author); //use callbacks or promises to handle the response from the
 
 		//Tells all the stores that an Author was created
 		Dispatcher.dispatch({
