@@ -49655,7 +49655,7 @@ var AuthorList = React.createClass({displayName: "AuthorList",
 		var createAuthorRow = function (author) {
 			return (
 				React.createElement("tr", {key: author.id}, 
-				React.createElement("td", null, React.createElement(Link, {to: "manageAuthor", params: {id:author.id}}, author.id)), 
+				React.createElement("td", null, React.createElement(Link, {to: "manageAuthor", params: {id: author.id}}, author.id)), 
 				React.createElement("td", null, author.firstName, " ", author.lastName)
 				)	
 				);
