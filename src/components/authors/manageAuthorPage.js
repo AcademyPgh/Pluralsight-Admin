@@ -3,7 +3,6 @@
 var React = require('react');
 var Router = require('react-router');
 var AuthorForm = require('./authorForm');
-// var AuthorApi = require('../../api/authorApi'); No longer needed 
 var AuthorActions = require('../../actions/authorActions');
 var AuthorStore = require('../../stores/authorStore');
 var toastr = require('toastr');
@@ -71,6 +70,12 @@ var ManageAuthorPage = React.createClass({
 
 		if(!this.authorFormIsValid()) {
 			return;
+		}
+
+		if(this.state.author.id) {
+			AuthorActions.updateAuthor(this.state.author);
+		} else {
+			AuthorActions.createAuthor(this.state.author);
 		}
 
 		AuthorActions.createAuthor(this.state.author);
