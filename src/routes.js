@@ -15,9 +15,18 @@ var routes = (
 		<Route name='about' handler={require('./components/about/aboutPage')} />
 		<Route name='addAuthor' path='author' handler={require('./components/authors/manageAuthorPage')} />
 		<Route name='manageAuthor' path='author/:id' handler={require('./components/authors/manageAuthorPage')} />
+
+		<Route name='courses' handler={require('./components/courses/coursesPage')} />
+
+		<Route name='addCourse' path='course' handler={require('./components/courses/manageCoursePage')} />
+		
+		<Route name='manageCourse' path='course/:id' handler={require('./components/courses/manageCoursePage')} />
+
+
 		<NotFoundRoute handler={require('./components/notFoundPage')} />
 		<Redirect from='about/*' to='about' />
 	</Route>
 	);
 
 module.exports = routes;
+
