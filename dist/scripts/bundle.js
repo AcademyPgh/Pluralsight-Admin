@@ -50674,7 +50674,9 @@ var React = require('react');
 var CourseList = React.createClass({displayName: "CourseList",
 	render: function() {
 		return (
-			React.createElement("div", null, " yolo ")
+			React.createElement("button", {className: "btn btn-default", onClick: this.props.onClick}, 
+				"Clicker"
+			)
 		);
 	}
 });
@@ -50712,8 +50714,21 @@ var CoursePage = React.createClass({displayName: "CoursePage",
 	// 	AuthorStore.removeChangeListener(this._onChange); 
 	// },
 	getInitialState: function() {
+		var totalClicks = 0;
+		// this.handleClick = this.handleClick.bind(this);
 
-		return {};
+		return {
+			totalClicks: totalClicks
+		};
+	},
+
+	handleClick: function() {
+		var total = this.state.totalClicks;
+
+		this.setState({
+			totalClicks: (total + 1)
+		});
+
 	},
 
 	render: function() {
@@ -50722,13 +50737,17 @@ var CoursePage = React.createClass({displayName: "CoursePage",
 				React.createElement("h1", null, "Courses Page"), 
 				React.createElement(Link, {to: "addCourse", className: "btn btn-default"}, "Add Course"), 
 				React.createElement("p", null, "Be Sure to fix the prop rendering the Courses List"), 
-				React.createElement(CourseList, null)
+				React.createElement(CourseList, {onClick: this.handleClick}), 
+				
+				React.createElement("p", null, this.state.totalClicks)
 			)
 		);
 	}
 });
 
 module.exports = CoursePage;
+
+// <button className='btn btn-default' onClick={this.handleClick}>Parent Clicker {this.state.totalClicks}</button>
 
 },{"../../stores/authorStore":227,"./courseList":217,"react":202,"react-router":38}],220:[function(require,module,exports){
 "use strict"; 

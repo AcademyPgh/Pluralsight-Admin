@@ -26,8 +26,21 @@ var CoursePage = React.createClass({
 	// 	AuthorStore.removeChangeListener(this._onChange); 
 	// },
 	getInitialState: function() {
+		var totalClicks = 0;
+		// this.handleClick = this.handleClick.bind(this);
 
-		return {};
+		return {
+			totalClicks: totalClicks
+		};
+	},
+
+	handleClick: function() {
+		var total = this.state.totalClicks;
+
+		this.setState({
+			totalClicks: (total + 1)
+		});
+
 	},
 
 	render: function() {
@@ -36,11 +49,15 @@ var CoursePage = React.createClass({
 				<h1>Courses Page</h1>
 				<Link to='addCourse' className='btn btn-default'>Add Course</Link>
 				<p>Be Sure to fix the prop rendering the Courses List</p>
-				<CourseList />
+				<CourseList onClick={this.handleClick}/>
+				
+				<p>{this.state.totalClicks}</p>
 			</div>
 		);
 	}
 });
 
 module.exports = CoursePage;
+
+// <button className='btn btn-default' onClick={this.handleClick}>Parent Clicker {this.state.totalClicks}</button>
 

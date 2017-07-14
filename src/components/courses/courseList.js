@@ -5,7 +5,9 @@ var React = require('react');
 var CourseList = React.createClass({
 	render: function() {
 		return (
-			<div> yolo </div>
+			<button className='btn btn-default' onClick={this.props.onClick}>
+				Clicker
+			</button>
 		);
 	}
 });
