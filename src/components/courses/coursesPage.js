@@ -4,54 +4,46 @@ var React = require('react');
 var Router = require('react-router');
 var Link = Router.Link;
 
-var CourseStore = require('../../stores/authorStore');
+var CourseStore = require('../../stores/courseStore');
+
 var CourseList = require('./courseList');
+	
+// var AuthorPage = React.createClass({
+// 	getInitialState: function() {
+// 		console.log(AuthorStore.getAllAuthors());
+// 		return {
+// 			authors: AuthorStore.getAllAuthors()
+// 		};
+// 	},
 
 var CoursePage = React.createClass({
-	// getInitialState: function() {
-	// 	return {
-	// 		authors: AuthorStore.getAllAuthors()
-	// 	};
-	// },	
-
-	// _onChange: function() {
-	// 	this.setState({ authors: AuthorStore.getAllAuthors() });
-	// },
-
-	// componentWillMount: function() {
-	// 	AuthorStore.addChangeListener(this._onChange); 
-	// },
-
-	// componentWillUnmount: function() {
-	// 	AuthorStore.removeChangeListener(this._onChange); 
-	// },
 	getInitialState: function() {
-		var totalClicks = 0;
-		// this.handleClick = this.handleClick.bind(this);
-
 		return {
-			totalClicks: totalClicks
+			courses: CourseStore.getAllCourses()
 		};
 	},
 
-	handleClick: function() {
-		var total = this.state.totalClicks;
+	// _onChange: function() {
+	// 	this.setState({ courses: CourseStore.getAllCourses() });
+	// },
 
-		this.setState({
-			totalClicks: (total + 1)
-		});
+	// handleClick: function() {
+	// 	var total = this.state.totalVotes;
 
-	},
+	// 	this.setState({
+	// 		totalVotes: (total + 1)
+	// 	});
+
+	// },
 
 	render: function() {
 		return (
 			<div>
 				<h1>Courses Page</h1>
 				<Link to='addCourse' className='btn btn-default'>Add Course</Link>
-				<p>Be Sure to fix the prop rendering the Courses List</p>
-				<CourseList onClick={this.handleClick}/>
+				<CourseList courses={this.state.courses}/>
 				
-				<p>{this.state.totalClicks}</p>
+				
 			</div>
 		);
 	}
@@ -59,5 +51,9 @@ var CoursePage = React.createClass({
 
 module.exports = CoursePage;
 
-// <button className='btn btn-default' onClick={this.handleClick}>Parent Clicker {this.state.totalClicks}</button>
+// <button className='btn btn-default' onClick={this.handleClick}>Parent Clicker {this.state.totalVotes}</button>
+
+// <p>{this.state.totalVotes}</p>
+		// var totalVotes = 0;
+		// in es6: this.handleClick = this.handleClick.bind(this);
 

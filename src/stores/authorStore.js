@@ -39,6 +39,7 @@ Dispatcher.register(function(action) {
 			break; 
 		case ActionTypes.CREATE_AUTHOR:
 			_authors.push(action.author);
+			// _authors = _authors.sort();
 			AuthorStore.emitChange();
 			break;
 		case ActionTypes.UPDATE_AUTHOR:
