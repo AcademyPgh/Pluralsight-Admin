@@ -41,9 +41,11 @@ var ManageAuthorPage = React.createClass({
 
 	setAuthorState: function (event) {
 		this.setState({dirty: true});
+		//The target event property returns the element that triggered the event.
 		var field = event.target.name;
 		var value = event.target.value; 
 		this.state.author[field] = value; 
+		console.log(this.state.author);
 		return this.setState({author: this.state.author});
 	},
 
@@ -77,8 +79,7 @@ var ManageAuthorPage = React.createClass({
 		} else {
 			AuthorActions.createAuthor(this.state.author);
 		}
-
-		AuthorActions.createAuthor(this.state.author);
+		
 		this.setState({dirty: false});
 		toastr.success('Author saved.');
 		this.transitionTo('authors');

@@ -1,8 +1,8 @@
-"use strict";
+ "use strict";
 
 var React = require('react');
 
-var Input = React.createClass({
+var AuthorInput = React.createClass({
 	propTypes: {
 		name: React.PropTypes.string.isRequired,
 		label: React.PropTypes.string.isRequired,
@@ -37,4 +37,4 @@ var Input = React.createClass({
 	}
 });
 
-module.exports = Input;
+module.exports = AuthorInput;

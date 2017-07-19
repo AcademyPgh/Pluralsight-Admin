@@ -4,16 +4,15 @@ var Dispatcher = require('../dispatcher/appDispatcher');
 var CourseApi = require('../api/CourseApi');
 var ActionTypes = require('../constants/actionTypes');
 
-// var AuthorActions = {
-// 	createAuthor: function(author) {
-// 		var newAuthor = AuthorApi.saveAuthor(author); //use callbacks or promises to handle the response from the
+var CourseActions = {
+	createCourse: function(course) {
+		var newCourse = CourseApi.saveCourse(course);
 
-// 		//Tells all the stores that an Author was created
-// 		Dispatcher.dispatch({
-// 			actionType: ActionTypes.CREATE_AUTHOR, 
-// 			author: newAuthor
-// 		});
-// 	}, 
+		Dispatcher.dispatch({
+			actionType: ActionTypes.CREATE_COURSE, 
+			course: course
+		}); 
+	}
 
 // 	updateAuthor: function(author) {
 // 		var updatedAuthor = AuthorApi.saveAuthor(author);	
@@ -32,6 +31,6 @@ var ActionTypes = require('../constants/actionTypes');
 // 			id: id
 // 		}); 
 // 	}
-// };
+};
 
-// module.exports = AuthorActions; 
+module.exports = CourseActions; 

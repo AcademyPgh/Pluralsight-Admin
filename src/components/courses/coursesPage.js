@@ -5,16 +5,8 @@ var Router = require('react-router');
 var Link = Router.Link;
 
 var CourseStore = require('../../stores/courseStore');
-
 var CourseList = require('./courseList');
-	
-// var AuthorPage = React.createClass({
-// 	getInitialState: function() {
-// 		console.log(AuthorStore.getAllAuthors());
-// 		return {
-// 			authors: AuthorStore.getAllAuthors()
-// 		};
-// 	},
+var CourseActions = require('../../actions/courseActions');
 
 var CoursePage = React.createClass({
 	getInitialState: function() {
@@ -23,9 +15,9 @@ var CoursePage = React.createClass({
 		};
 	},
 
-	// _onChange: function() {
-	// 	this.setState({ courses: CourseStore.getAllCourses() });
-	// },
+	_onChange: function() {
+		this.setState({ courses: CourseStore.getAllCourses() });
+	},
 
 	// handleClick: function() {
 	// 	var total = this.state.totalVotes;
@@ -41,7 +33,7 @@ var CoursePage = React.createClass({
 			<div>
 				<h1>Courses Page</h1>
 				<Link to='addCourse' className='btn btn-default'>Add Course</Link>
-				<CourseList courses={this.state.courses}/>
+				<CourseList courses={this.state.courses} />
 				
 				
 			</div>
